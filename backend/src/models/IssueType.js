@@ -1,21 +1,20 @@
 const mongoose = require('mongoose');
 
-const departmentSchema = new mongoose.Schema(
+const issueTypeSchema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
+      unique: true,
       trim: true,
     },
-    contact_info: {
-      type: String,
-      trim: true,
-    },
-    slug: {
+    category: {
       type: String,
       required: true,
-      unique: true,
-      lowercase: true,
+      trim: true,
+    },
+    description: {
+      type: String,
       trim: true,
     },
   },
@@ -24,4 +23,4 @@ const departmentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Department', departmentSchema);
+module.exports = mongoose.model('IssueType', issueTypeSchema);
